@@ -210,6 +210,8 @@ export function PostActions({ post, onComments, shareUrl, children }: PostAction
         <PostActionsView
           emojis={REACTION_EMOJIS}
           reactionStatus={post.currentUserReaction ?? null}
+          // As bolinhas do contador mostram o top real do post (o DS limita a 3, por contagem).
+          reactionSummary={post.reactionSummary ?? undefined}
           onReact={toggleReaction}
           // Enquanto há reação em andamento, o estado otimista manda — a prop do feed não sobrescreve.
           reactionPending={card?.reactionPending ?? false}
